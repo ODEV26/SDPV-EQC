@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Deteccion de Placas - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='login.css') }}">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            width: 300px;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+        }
+
+        .modal-content button {
+            margin: 0 10px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-box" style="background-color: #191f2f;">
+            <h1>Proyecto E-C</h1>
+            <form id="loginForm" method="POST" action="/proyecto-c/login/success">
+                <div class="form-group">
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Ingrese su usuario">
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña">
+                </div>
+                <input type="submit" value="Ingresar" style="background-color: #00d072; color: black; font-weight: bold; border: 2px solid #191f2f ; padding: 7px 45px; border-radius: 10px;">
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal HTML -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button id="closeModalButton">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("loginForm");
+            const modal = document.getElementById("errorModal");
+            const modalMessage = document.getElementById("modalMessage");
+            const closeModalButton = document.getElementById("closeModalButton");
+
+            closeModalButton.addEventListener("click", function () {
+                modal.style.display = "none";
+            });
+
+            form.addEventListener("submit", function (event) {
+                const usuario = document.getElementById("usuario").value.trim();
+                const contrasena = document.getElementById("contrasena").value.trim();
+
+                if (!usuario || !contrasena) {
+                    event.preventDefault();
+                    modalMessage.textContent = "Por favor, complete todos los campos.";
+                    modal.style.display = "block";
+                    return;
+                } 
+            });
+        });
+
+    </script>
+</body>
+
+</html>
