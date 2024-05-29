@@ -57,8 +57,6 @@
         <div class="admin-header" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
             <h1 style="color: #fff;">Administracion</h1>
             <div class="button-container" style="display: flex; gap: 10px;">
-                <button id="runTestIn" style="background-color: #00d072; color: black; font-weight: bold; border: 2px solid #191f2f ; padding: 7px 10px; border-radius: 10px;">Test-E</button>
-                <button id="runTestOut" style="background-color: #00d072; color: black; font-weight: bold; border: 2px solid #191f2f ; padding: 7px 10px; border-radius: 10px;">Test-S</button>
                 <button id="runSystemIn" style="background-color: #00d072; color: black; font-weight: bold; border: 2px solid #191f2f ; padding: 7px 10px; border-radius: 10px;">Sistema-E</button>
                 <button id="runSystemOut" style="background-color: #00d072; color: black; font-weight: bold; border: 2px solid #191f2f ; padding: 7px 10px; border-radius: 10px;">Sistema-S</button>
                 <button id="logoutButton" style="background-color: #00d072; color: black; font-weight: bold; border: 2px solid #191f2f ; padding: 7px 10px; border-radius: 10px;">Cerrar Sesion</button>
@@ -166,39 +164,6 @@
             loadPlateData(); // Cargar datos de matriculas al hacer clic en el boton de refresco
         });
 
-        //Funcionalidad para ejecutar el test de entrada
-        const runTestIn = document.getElementById('runTestIn');
-        runTestIn.addEventListener('click', function() {
-            fetch('/proyecto-c/login/success/runTestIn')
-            .then(response => {
-                if(response.ok) {
-                    alert('El programa se ha ejecutado con exito')
-                } else {
-                    alert('Error al ejecutar el programa')
-                }
-            })
-            .catch(error => {
-                console.error('Error: ', error);
-                alert('Error al ejecutar el programa');
-            });
-        });
-
-        //Funcionalidad para ejecutar el test de salida
-        const runTestOut = document.getElementById('runTestOut');
-        runTestOut.addEventListener('click', function() {
-            fetch('/proyecto-c/login/success/runTestOut')
-            .then(response => {
-                if(response.ok) {
-                    alert('El programa se ha ejecutado con exito')
-                } else {
-                    alert('Error al ejecutar el programa')
-                }
-            })
-            .catch(error => {
-                console.error('Error: ', error);
-                alert('Error al ejecutar el programa');
-            });
-        });
         //Funcionalidad para ejecutar el sistema de entrada
         const runSystemIn = document.getElementById('runSystemIn');
         runSystemIn.addEventListener('click', function() {
@@ -215,6 +180,7 @@
                 alert('Error al ejecutar el programa');
             });
         });
+        
         //Funcionalidad para ejecutar el sistema de salida
         const runSystemOut = document.getElementById('runSystemOut');
         runSystemOut.addEventListener('click', function() {

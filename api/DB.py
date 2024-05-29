@@ -4,5 +4,4 @@ client = MongoClient("mongodb+srv://of91778:of91778@cluster3.l7a1a5q.mongodb.net
 db = client["registros"]
 db2 = client["usuarios"]
 collection_1 = db["datos"]
-collection_2 = db["salida"]
 collection_3 = db2["administradores"]

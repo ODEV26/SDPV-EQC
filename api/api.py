@@ -59,14 +59,6 @@ async def logout():
     return RedirectResponse(url="/proyecto-c/login")
 
 #METODOS PARA EJECUTAR EL SISTEMA
-@router.get("/login/success/runTestIn")
-async def runTestIn():
-    rutaSistema("test-in")
-    
-@router.get("/login/success/runTestOut")
-async def runTestOut():
-    rutaSistema("test-out")
-    
 @router.get("/login/success/runSystemIn")
 async def runSystemIn():
     rutaSistema("system-in")
